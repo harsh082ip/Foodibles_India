@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodibles_admin/constants/drawer_const.dart';
+import 'package:foodibles_admin/view/shared_res/add_user.dart';
 
 class TabletAddUser extends StatefulWidget {
   const TabletAddUser({super.key});
@@ -11,8 +12,10 @@ class TabletAddUser extends StatefulWidget {
 class _TabletAddUserState extends State<TabletAddUser> {
   @override
   Widget build(BuildContext context) {
+    print('build');
     String _selectedOption = role[0];
     return Scaffold(
+      // backgroundColor: Colors.pink,
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -24,90 +27,7 @@ class _TabletAddUserState extends State<TabletAddUser> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(height: 20),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Name',
-                  border: OutlineInputBorder(),
-                  filled: true,
-                  fillColor: Colors.grey[200], // Add background color
-                ),
-              ),
-              SizedBox(height: 20),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                  filled: true,
-                  fillColor: Colors.grey[200], // Add background color
-                ),
-              ),
-              SizedBox(height: 20),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  border: OutlineInputBorder(),
-                  filled: true,
-                  fillColor: Colors.grey[200], // Add background color
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Phone Number',
-                  border: const OutlineInputBorder(),
-                  filled: true,
-                  fillColor: Colors.grey[200], // Add background color
-                ),
-              ),
-              SizedBox(height: 20),
-              DropdownButtonFormField<String>(
-                decoration: InputDecoration(
-                  labelText: 'Role',
-                  border: OutlineInputBorder(),
-                  filled: true,
-                  fillColor: Colors.grey[200], // Add background color
-                ),
-                value: _selectedOption,
-                items: role.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    _selectedOption = newValue!;
-                  });
-                },
-              ),
-              Container(
-                margin:
-                    EdgeInsets.symmetric(horizontal: 80.0).copyWith(top: 50.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Handle form submission
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 84, 225, 59),
-                    padding: const EdgeInsets.symmetric(vertical: 20.0),
-
-                    // Adjust padding
-                  ),
-                  child: const Text(
-                    'Submit',
-                    style: TextStyle(
-                        fontSize: 16, color: Colors.white), // Adjust font size
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: SingleChildScrollView(child: AddUser()),
       ),
     );
   }

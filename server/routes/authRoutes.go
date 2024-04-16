@@ -7,5 +7,5 @@ import (
 
 func AuthRoutes(incomingRoutes *gin.RouterGroup) {
 
-	incomingRoutes.POST("/auth/reguserandsentotp", authcontrollers.CreateUser)
+	incomingRoutes.POST("/auth/admin/registeruser", authcontrollers.CreateUser)
 }
